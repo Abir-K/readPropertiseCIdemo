@@ -17,7 +17,7 @@ pipeline {
         stage('Reading Propertise File') {
             steps {
                 script {
-                   prop = readPropertise file: 'demofile.propertise'
+                   def prop = readProperties interpolate: true, file: 'demo.properties'
                    echo "Name of the app is : ${prop['app.name']}"
                    echo "Build environment : ${prop['environment.name']}"
                    echo "Version is : ${prop['app.version.number']}"
